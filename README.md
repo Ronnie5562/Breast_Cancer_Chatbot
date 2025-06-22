@@ -26,7 +26,7 @@ This project addresses critical healthcare accessibility challenges by providing
 |--------|-------|
 | Training Loss | 0.95 → 0.0 (100% improvement) |
 | Validation Loss | 0.515 |
-| Training Time | 21 minutes 48 seconds |
+| Training Time | ~ 3.6 hours |
 | Dataset Size | 527 Q&A pairs (expanded from 187) |
 | Model Architecture | DialoGPT-small fine-tuned |
 
