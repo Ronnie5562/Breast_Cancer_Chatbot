@@ -1,0 +1,140 @@
+{
+  "model": {
+    "base_model_name": "microsoft/DialoGPT-small",
+    "max_sequence_length": 512,
+    "padding_strategy": "max_length",
+    "truncation": true
+  },
+  "training": {
+    "learning_rate": 5e-05,
+    "batch_size": 4,
+    "num_epochs": 3,
+    "warmup_steps": 100,
+    "gradient_accumulation_steps": 1,
+    "max_grad_norm": 1.0,
+    "weight_decay": 0.01,
+    "save_strategy": "epoch",
+    "eval_strategy": "epoch",
+    "logging_steps": 10,
+    "save_total_limit": 3,
+    "early_stopping_patience": 3,
+    "early_stopping_threshold": 0.001
+  },
+  "data": {
+    "train_data_path": "data/breast_cancer_data.csv",
+    "test_data_path": "data/test_data.csv",
+    "test_size": 0.2,
+    "validation_size": 0.1,
+    "random_state": 42,
+    "min_question_length": 5,
+    "max_question_length": 500,
+    "min_answer_length": 10,
+    "max_answer_length": 1000,
+    "use_patterns": true,
+    "expand_with_paraphrases": false
+  },
+  "inference": {
+    "max_new_tokens": 150,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 50,
+    "do_sample": true,
+    "repetition_penalty": 1.1,
+    "min_response_length": 10,
+    "max_response_length": 300,
+    "domain_keywords": [
+      "breast cancer",
+      "breast tumor",
+      "breast carcinoma",
+      "mammogram",
+      "mastectomy",
+      "lumpectomy",
+      "chemotherapy",
+      "radiation therapy",
+      "hormone therapy",
+      "her2",
+      "estrogen receptor",
+      "progesterone receptor",
+      "metastasis",
+      "lymph nodes",
+      "oncology",
+      "biopsy",
+      "breast screening",
+      "brca",
+      "genetic testing",
+      "breast self-exam",
+      "ductal carcinoma",
+      "lobular carcinoma",
+      "inflammatory breast cancer",
+      "triple negative",
+      "tumor",
+      "cancer",
+      "malignant",
+      "benign",
+      "diagnosis",
+      "treatment",
+      "symptoms",
+      "prevention",
+      "risk factors",
+      "screening",
+      "therapy"
+    ]
+  },
+  "ui": {
+    "gradio_server_name": "0.0.0.0",
+    "gradio_server_port": 7860,
+    "gradio_share": true,
+    "title": "\ud83c\udf97\ufe0f Breast Cancer Information Chatbot",
+    "description": "Ask me any questions about breast cancer symptoms, treatment, diagnosis, or prevention.",
+    "example_questions": [
+      "What is breast cancer?",
+      "What are the symptoms of breast cancer?",
+      "How is breast cancer diagnosed?",
+      "What are the treatment options for breast cancer?",
+      "How can I prevent breast cancer?",
+      "What is a mammogram?",
+      "What is chemotherapy?",
+      "What are the risk factors for breast cancer?",
+      "What is the difference between ductal and lobular carcinoma?",
+      "What does triple negative breast cancer mean?"
+    ]
+  },
+  "paths": {
+    "base_model_dir": "models/base",
+    "fine_tuned_model_dir": "models/fine_tuned",
+    "experiment_dir": "experiments",
+    "data_dir": "data",
+    "logs_dir": "logs",
+    "output_dir": "output",
+    "training_log_file": "logs/training.log",
+    "evaluation_results_file": "output/evaluation_results.json",
+    "hyperparameter_results_file": "output/hyperparameter_results.csv"
+  },
+  "experiment": {
+    "learning_rates": [
+      1e-05,
+      2e-05,
+      3e-05,
+      5e-05,
+      0.0001
+    ],
+    "batch_sizes": [
+      2,
+      4,
+      8
+    ],
+    "num_epochs_options": [
+      2,
+      3,
+      4
+    ],
+    "num_trials": 10,
+    "optimization_metric": "bleu_score"
+  },
+  "device": "cpu",
+  "seed": 42,
+  "debug": false,
+  "log_level": "INFO",
+  "wandb_project": "breast-cancer-chatbot",
+  "use_wandb": false
+}
