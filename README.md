@@ -121,29 +121,15 @@ breast-cancer-chatbot/
 
 ### Training Evolution
 
-| Iteration | Learning Rate | Final Train Loss | Final Eval Loss | Training Time |
-|-----------|---------------|------------------|-----------------|---------------|
-| 1 | 1e-4 | 0.95 | 0.89 | 6h 45m |
-| 2 | 5e-5 | 0.72 | 0.78 | 4h 20m |
-| 3 | 5e-5 | 0.48 | 0.62 | 2h 15m |
-| 4 | 5e-5 | 0.31 | 0.58 | 1h 45m |
-| 5 | 5e-5 | 0.0 | 0.515 | 21m 48s |
+| Iteration | Learning Rate | Final Train Loss | Final Eval Loss |
+|-----------|---------------|------------------|-----------------|
+| 1 | 1e-4 | 0.95 | 0.89 |
+| 2 | 5e-5 | 0.72 | 0.78 |
+| 3 | 5e-5 | 0.48 | 0.62 |
+| 4 | 5e-5 | 0.31 | 0.58 |
+| 5 | 5e-5 | 0.0 | 0.515 |
 
 
-## 🛠️ Development
-
-### Running Tests
-
-```bash
-# Run all tests
-python -m pytest tests/
-
-# Run specific test suite
-python -m pytest tests/test_model.py -v
-
-# Run with coverage
-python -m pytest --cov=src tests/
-```
 
 ### Adding New Data
 
